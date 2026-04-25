@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: job-api
+  template:
+    metadata:
+      labels:
+        app: job-api
+    spec:
+      containers:
+        - name: job-api
+          image: ghcr.io/rusmiromerovic/job-system:latest
+          ports:
+            - containerPort: 8000
